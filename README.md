@@ -113,7 +113,6 @@ Contributions are welcome! Feel free to open issues and pull requests.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
 ```
 
 Please replace `<repository-url>` with the actual URL of your repository. This README file provides detailed information about the project, its features, usage, building instructions, and contribution guidelines.
