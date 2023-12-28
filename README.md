@@ -1,9 +1,7 @@
-# Personal-Organizer
-
 ```markdown
 # Personal Organizer
 
-Personal Organizer is a simple command-line application to help you manage tasks, appointments, and personal notes, providing an organized approach to your daily life.
+Personal Organizer is a versatile command-line application designed to assist you in managing tasks, appointments, and personal notes, offering an efficient solution for organizing your daily life.
 
 ## Features
 
@@ -114,5 +112,9 @@ Personal Organizer is a simple command-line application to help you manage tasks
 
 Contributions are welcome! Feel free to open issues and pull requests.
 
+## License
 
+This project is licensed under the [MIT License](LICENSE).
 ```
+
+Please replace `<repository-url>` with the actual URL of your repository. This README file provides detailed information about the project, its features, usage, building instructions, and contribution guidelines.
