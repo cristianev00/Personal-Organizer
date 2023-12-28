@@ -1,4 +1,3 @@
-```markdown
 # Personal Organizer
 
 Personal Organizer is a versatile command-line application designed to assist you in managing tasks, appointments, and personal notes, offering an efficient solution for organizing your daily life.
