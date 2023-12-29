@@ -7,6 +7,7 @@
 #include <sstream>
 #include <ctime>
 #include <unistd.h>
+#include <iomanip>
 
 using namespace std;
 
@@ -229,8 +230,10 @@ void viewDailyAppointments(const string& date) {
     clearConsole();
     cout << "\033[1;32m==== Appointments for " << date << " ====\033[0m" << endl;
 
-    for (const Appointment& appointment : appointments) {
+    for (size_t i = 0; i < appointments.size(); ++i) {
+        const Appointment& appointment = appointments[i];
         if (appointment.date == date) {
+            cout << "Index: " << i << endl; 
             cout << "Title: " << appointment.title << endl;
             cout << "Time: " << appointment.time << endl;
             cout << "Notes: " << appointment.notes << endl;
@@ -259,7 +262,8 @@ void viewWeeklyAppointments(const string& startDate) {
     tm_endDate.tm_mday += 7; // Add 7 days to get the end date of the week
     mktime(&tm_endDate);
 
-    for (const Appointment& appointment : appointments) {
+    for (size_t i = 0; i < appointments.size(); ++i) {
+        const Appointment& appointment = appointments[i];
         // Convert the appointment date to tm structure for comparison
         tm tm_appointmentDate = {};
         istringstream ss(appointment.date);
@@ -268,6 +272,7 @@ void viewWeeklyAppointments(const string& startDate) {
         // Check if the appointment date is within the week
         if (difftime(mktime(&tm_appointmentDate), mktime(&tm_startDate)) >= 0 &&
             difftime(mktime(&tm_appointmentDate), mktime(&tm_endDate)) < 0) {
+            cout << "Index: " << i << endl; 
             cout << "Title: " << appointment.title << endl;
             cout << "Date: " << appointment.date << endl;
             cout << "Time: " << appointment.time << endl;
@@ -292,7 +297,8 @@ void viewMonthlyAppointments(const string& month, const string& year) {
     stringstream(year) >> targetYear;
 
     //check appointments among all registers
-    for (const Appointment& appointment : appointments) {
+    for (size_t i = 0; i < appointments.size(); ++i) {
+        const Appointment& appointment = appointments[i];
         tm tm_appointmentDate = {};
         istringstream ss(appointment.date);
         ss >> get_time(&tm_appointmentDate, "%d/%m/%Y");
@@ -300,6 +306,7 @@ void viewMonthlyAppointments(const string& month, const string& year) {
         // Check if the appointment date is within the specified month and year
         if (tm_appointmentDate.tm_mon + 1 == targetMonth &&  // tm_mon is 0-indexed
             tm_appointmentDate.tm_year + 1900 == targetYear) {  // tm_year is years since 1900
+            cout << "Index: " << i << endl; 
             cout << "Title: " << appointment.title << endl;
             cout << "Date: " << appointment.date << endl;
             cout << "Time: " << appointment.time << endl;
@@ -572,13 +579,23 @@ void showAppointmentMenu() {
             case 2: {
                 clearConsole();
                 cout << "\033[1;33m==== Upcoming Appointments ====\033[0m" << endl;
-                for (const Appointment& appointment : appointments) {
+                
+                // Iterate through appointments with an index
+                for (size_t i = 0; i < appointments.size(); ++i) {
+                    const Appointment& appointment = appointments[i];
+                    cout << "Index: " << i << endl;  
                     cout << "Title: " << appointment.title << endl;
                     cout << "Date (dd/mm/yyyy): " << appointment.date << endl;
                     cout << "Time: " << appointment.time << endl;
                     cout << "Notes: " << appointment.notes << endl;
                     cout << "\033[1;33m------------------------\033[0m" << endl;
                 }
+                
+                // Optionally, you can print a message if there are no appointments
+                if (appointments.empty()) {
+                    cout << "No upcoming appointments." << endl;
+                }
+                
                 break;
             }
             case 3: {

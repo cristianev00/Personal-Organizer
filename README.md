@@ -14,7 +14,7 @@ Personal Organizer is a versatile command-line application designed to assist yo
 1. **Clone the repository:**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/cristianev00/Personal-Organizer
    ```
 
 2. **Build the program:**
@@ -115,4 +115,3 @@ Contributions are welcome! Feel free to open issues and pull requests.
 
 ```
 
-Please replace `<repository-url>` with the actual URL of your repository. This README file provides detailed information about the project, its features, usage, building instructions, and contribution guidelines.
